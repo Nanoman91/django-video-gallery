@@ -1,18 +1,18 @@
-mYk's gallery
+Django Gallery - A simple gallery, extended.  Based on myks gallery
 #############
 
 Introduction
 ============
 
-`myks-gallery`_ is a simple photo gallery with granular access control.
+`Django-gallery`_ is a simple photo gallery with granular access control.
 
-It powers my `humble photo gallery`_, allowing me to:
+It powers myks's `humble photo gallery`_, allowing me to:
 
 - access my entire photo collection privately,
 - share some albums with family or friends,
 - make some albums public.
 
-.. _myks-gallery: https://github.com/aaugustin/myks-gallery
+.. _django-gallery: https://github.com/jeremygaul/django-gallery
 .. _humble photo gallery: http://myks.org/photos/
 
 Use case
@@ -23,10 +23,10 @@ and put my photos inside. I include the date of the event in the name of the
 directory and I rename photos based on their date and time. Then I regularly
 synchronize my collection to a remote storage. I serve my gallery from there.
 
-If you have a similar workflow, you may find myks-gallery useful.
+If you have a similar workflow, you may find django-gallery useful.
 
 Whenever I upload new photos, I re-scan the collection with ``./manage.py
-scanphotos`` or with the button in the admin. myks-gallery detects new albums
+scanphotos`` or with the button in the admin. django-gallery detects new albums
 and photos. Then I define users, groups and access policies in the admin.
 
 Album access policies control the visibility of albums. Most often, you'll
@@ -43,13 +43,13 @@ photos with relatives. You might want to use django-sesame_.
 Setup
 =====
 
-myks-gallery is a pluggable Django application. It requires Django ≥ 1.8 and
+django-gallery is a pluggable Django application. It requires Django ≥ 1.8 and
 Pillow. It works with any version of Python supported by Django.
 
 Architecture
 ------------
 
-myks-gallery requires two storage areas:
+django-gallery requires two storage areas:
 
 - The first one contains the original photos. It's a read-only reference. You
   can upload photos there with `aws s3 sync`_, `gsutil rsync`_, rsync_, etc.
@@ -58,7 +58,7 @@ myks-gallery requires two storage areas:
   It's a read-write cache. You can set up expiry policies and clear it without
   affecting the gallery, aside from the cost of rescaling images again.
 
-myks-gallery accesses them through Django's `file storage API`_, meaning that
+django-gallery accesses them through Django's `file storage API`_, meaning that
 you can use any storage for which a Django storage backend exists. You should
 use a third-party storage backend if you're storing files in a cloud service
 and Djang's built-in ``FileSystemStorage`` if you're storing them locally on
@@ -73,12 +73,12 @@ Installation guide
 ------------------
 
 This application isn't exactly plug'n'play. There are many moving pieces.
-Here's the general process for integrating myks-gallery into an existing
+Here's the general process for integrating django-gallery into an existing
 website:
 
 1.  Download and install the package from PyPI::
 
-        $ pip install myks-gallery
+        $ pip install django-gallery
 
 2.  Add ``gallery.apps.GalleryConfig`` to ``INSTALLED_APPS``::
 
@@ -106,15 +106,15 @@ website:
 The source_ contains a sample application in the ``example`` directory. It can
 help you see how everything fits together. See below for how to run it.
 
-.. _example: https://github.com/aaugustin/myks-gallery/blob/master/example/example/templates/base.html
+.. _example: https://github.com/jeremygaul/django-gallery/blob/master/example/example/templates/base.html
 .. _X-accel: http://wiki.nginx.org/X-accel
 .. _mod_xsendfile: https://tn123.org/mod_xsendfile/
-.. _source: https://github.com/aaugustin/myks-gallery
+.. _source: https://github.com/aaugustin/django-gallery
 
 Permissions
 -----------
 
-myks-gallery defines two permissions:
+django-gallery defines two permissions:
 
 - "Can scan the photos directory" allows using the "Scan photos" button in the
   admin.
@@ -310,7 +310,7 @@ Running the sample application
     "Scan photos" link at the top right, and the "Scan photos" button on the
     next page. You should see the following messages:
 
-    * Scanning path/to/myks-gallery/example/photos
+    * Scanning path/to/django-gallery/example/photos
     * Adding album 2013_01_01_Featured Pictures (Photos) as Featured Pictures
     * Done (0.01s)
 
@@ -321,6 +321,17 @@ Running the sample application
 
 Changelog
 =========
+
+0.1 
+---
+
+Changed permissions and model to support custom user models.
+
+Changed albums to default to public = True
+
+
+FORK from myks
+==============
 
 0.6
 ---
