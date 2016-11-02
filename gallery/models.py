@@ -18,9 +18,20 @@ from .storages import get_storage
 
 class AccessPolicy(models.Model):
     public = models.BooleanField(verbose_name="is public", default=False)
-    groups = models.ManyToManyField(Group, blank=True, verbose_name="authorized groups")
-    users = models.ManyToManyField(User, blank=True, verbose_name="authorized users")
-
+    # groups = models.ManyToManyField(Group, blank=True, verbose_name="authorized groups")
+    # users = models.ManyToManyField(User, blank=True, verbose_name="authorized users")
+    try:
+        groups = models.ManyToManyField(Group, blank=True, verbose_name="authorized groups", related_name='%(class)s_access_policy_groups')
+        users = models.ManyToManyField(User, blank=True, verbose_name="authorized users", related_name='%(class)s_access_policy_users')
+    except Exception, e:
+        groups = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, verbose_name="authorized groups", related_name='%(class)s_access_policy_groups')
+        users = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, verbose_name="authorized users", related_name='%(class)s_access_policy_users')
+    else:
+        groups = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, verbose_name="authorized groups", related_name='%(class)s_access_policy_groups')
+        users = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, verbose_name="authorized users", related_name='%(class)s_access_policy_users')
+    finally:
+        pass
+    
     class Meta:
         abstract = True
 
