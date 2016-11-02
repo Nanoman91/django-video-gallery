@@ -17,7 +17,7 @@ from .storages import get_storage
 
 
 class AccessPolicy(models.Model):
-    public = models.BooleanField(verbose_name="is public", default=False)
+    public = models.BooleanField(verbose_name="is public", default=settings.GALLERY_DEFAULT_PUBLIC)
     # groups = models.ManyToManyField(Group, blank=True, verbose_name="authorized groups")
     # users = models.ManyToManyField(User, blank=True, verbose_name="authorized users")
     try:
