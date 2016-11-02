@@ -118,7 +118,7 @@ help you see how everything fits together. See below for how to run it.
 .. _example: https://github.com/jeremygaul/django-gallery/blob/master/example/example/templates/base.html
 .. _X-accel: http://wiki.nginx.org/X-accel
 .. _mod_xsendfile: https://tn123.org/mod_xsendfile/
-.. _source: https://github.com/aaugustin/django-gallery
+.. _source: https://github.com/jeremygaul/django-gallery
 
 Permissions
 -----------
