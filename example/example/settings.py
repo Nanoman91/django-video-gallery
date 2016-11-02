@@ -46,9 +46,21 @@ WSGI_APPLICATION = 'example.wsgi.application'
 
 # Gallery settings
 
+GALLERY_TITLE = 'Gallery'
+
+GALLERY_PREVIEW_COUNT = 5
+
+GALLERY_DEFAULT_PUBLIC=True
+
+GALLERY_ARCHIVE_EXPIRY = 60
+
+GALLERY_SENDFILE_HEADER = ''
+
 GALLERY_PHOTO_STORAGE = 'example.storages.photo'
 
 GALLERY_CACHE_STORAGE = 'example.storages.cache'
+
+GALLERY_IGNORES = ()
 
 GALLERY_PATTERNS = (
     ('Photos', r'(?P<a_year>\d{4})_(?P<a_month>\d{2})_(?P<a_day>\d{2})_'
