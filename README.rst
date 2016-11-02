@@ -44,7 +44,7 @@ Setup
 =====
 
 django-gallery is a pluggable Django application. It requires Django ≥ 1.8 and
-Pillow. It works with any version of Python supported by Django.
+Pillow and pytz. It works with any version of Python supported by Django.
 
 Architecture
 ------------
