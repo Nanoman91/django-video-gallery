@@ -84,7 +84,7 @@ website:
         
         OR
         
-        pip install -e git+https://github.com/jeremygaul/django-gallery.git#egg=django-gallery
+        pip install https://github.com/jeremygaul/django-gallery/zipball/master
 
 2.  Add ``gallery.apps.GalleryConfig`` to ``INSTALLED_APPS``::
 
