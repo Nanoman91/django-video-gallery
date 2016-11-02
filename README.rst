@@ -129,7 +129,7 @@ Settings
 
 Default: ``True``
 
-Permissions for the gallery to default too. If set to false will need to be manually changed to be visible without logging in. 
+Permissions for the gallery's visibility to anonymous users. If set to false will need to be manually changed to be visible without logging in. This affects when a new gallery is created via upload or new creation.
 
 ``GALLERY_PHOTO_STORAGE``
 .........................
