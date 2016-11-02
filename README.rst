@@ -329,6 +329,8 @@ Changed permissions and model to support custom user models.
 
 Changed albums to default to public = True
 
+Updated example to contain all options
+
 
 FORK from myks
 ==============
