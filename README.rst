@@ -124,6 +124,13 @@ django-gallery defines two permissions:
 Settings
 --------
 
+``GALLERY_DEFAULT_PUBLIC``
+...................
+
+Default: ``True``
+
+Permissions for the gallery to default too. If set to false will need to be manually changed to be visible without logging in. 
+
 ``GALLERY_PHOTO_STORAGE``
 .........................
 
