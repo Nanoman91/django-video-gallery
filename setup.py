@@ -12,20 +12,20 @@ README = os.path.join(os.path.dirname(__file__), 'README')
 if not os.path.exists(README):
     os.symlink(README + '.rst', README)
 
-description = 'Photo gallery with granular access control'
+description = 'A Simple Photo gallery with granular access control, Based on MyKs-Gallery'
 
 with open(README) as f:
     long_description = '\n\n'.join(f.read().split('\n\n')[2:6])
 
 setup(
-    name='myks-gallery',
-    version='0.5',
-    author='Aymeric Augustin',
-    author_email='aymeric.augustin@m4x.org',
-    url='https://github.com/aaugustin/myks-gallery',
+    name='django-gallery',
+    version='0.1',
+    author='Jeremy Gaul',
+    author_email='django-gallery@jeremygaul.com',
+    url='https://github.com/jeremygaul/django-gallery',
     description=description,
     long_description=long_description,
-    download_url='http://pypi.python.org/pypi/myks-gallery',
+    download_url='http://pypi.python.org/pypi/django-gallery',
     packages=[
         'gallery',
         'gallery.management',
@@ -40,7 +40,7 @@ setup(
         ],
     },
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 1 - Alpha",
         "Environment :: Web Environment",
         "Framework :: Django",
         "Intended Audience :: Developers",
