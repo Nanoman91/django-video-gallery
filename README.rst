@@ -1,6 +1,9 @@
 Django Gallery - A simple gallery, extended.  Based on myks gallery
 #############
-
+    .. image:: https://raw.githubusercontent.com/jeremygaul/django-gallery/master/screenshot-web.jpeg
+        :alt: HTTPie compared to cURL
+        :width: 100%
+        :align: center
 Introduction
 ============
 
