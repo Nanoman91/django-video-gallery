@@ -80,7 +80,7 @@ website:
         $ pip install pytz
         $ pip install pillow
         
-        $ pip install django-gallery    (not working, to be submitted to PyPI, download via GIT for now)
+        $ pip install django-gallery
         
         OR
         
