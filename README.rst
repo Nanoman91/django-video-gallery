@@ -72,13 +72,19 @@ the filesystem, typically for local development.
 Installation guide
 ------------------
 
-This application isn't exactly plug'n'play. There are many moving pieces.
 Here's the general process for integrating django-gallery into an existing
 website:
 
 1.  Download and install the package from PyPI::
 
-        $ pip install django-gallery
+        $ pip install pytz
+        $ pip install pillow
+        
+        $ pip install django-gallery    (not working, to be submitted to PyPI, download via GIT for now)
+        
+        OR
+        
+        pip install -e git+https://github.com/jeremygaul/django-gallery.git#egg=django-gallery
 
 2.  Add ``gallery.apps.GalleryConfig`` to ``INSTALLED_APPS``::
 
