@@ -62,7 +62,7 @@ class AlbumManager(models.Manager):
 class Album(models.Model):
     category = models.CharField(max_length=100)
     dirpath = models.CharField(max_length=200, verbose_name="directory path")
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True, blank=True)
     name = models.CharField(max_length=100, blank=True)
 
     objects = AlbumManager()
