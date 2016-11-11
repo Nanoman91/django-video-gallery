@@ -351,7 +351,7 @@ Changelog
 0.2
 ---
 
-Changed Album Date to none mandatory.
+Changed Album Date to none mandatory to allow custom pattern matching, defaults to blank or autonow in model.
 
 Tested with Postgre 9.5.X with no issues.
 
