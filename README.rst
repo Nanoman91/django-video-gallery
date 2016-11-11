@@ -286,6 +286,21 @@ Default: ``5``
 
 Number of thumbnails shown in the preview of each album.
 
+``GALLERY_ALLOW_EMPTY``
+........................
+
+Default = True
+
+Allows empty galleries
+
+``GALLERY_PAGINATE_COUNT``
+..........................
+
+Default = 20
+
+Amount to show before pagination of display.
+
+
 ``GALLERY_ARCHIVE_EXPIRY``
 ..........................
 
@@ -350,6 +365,8 @@ Changelog
 
 0.2
 ---
+
+Added setting for GALLERY_ALLOW_EMPTY and GALLERY_PAGINATE_COUNT
 
 Updated CSS and example to match picture example and existing gallery templates.
 
