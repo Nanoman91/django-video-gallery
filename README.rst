@@ -209,6 +209,14 @@ Default: ``()``
 Tuple of regular expressions matching paths within ``GALLERY_PHOTO_STORAGE``.
 Files matching one of these expressions will be ignored when scanning photos.
 
+Example ignoring OSX extra file::
+
+
+    GALLERY_IGNORES = (
+                        (r'.DS_Store'),
+                     )
+
+
 ``GALLERY_RESIZE_PRESETS``
 ..........................
 
