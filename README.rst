@@ -368,7 +368,7 @@ Changelog
 
 * Added setting for GALLERY_ALLOW_EMPTY and GALLERY_PAGINATE_COUNT
 
-Updated CSS and example to match picture example and existing gallery templates.
+* Updated CSS and example to match picture example and existing gallery templates.
 
 * Changed Album Date to none mandatory to allow custom pattern matching, defaults to blank or autonow in model.
 
