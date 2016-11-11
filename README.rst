@@ -1,35 +1,34 @@
-Django Gallery - A simple gallery, extended.  Based on myks gallery
+Simple Video Gallery supporting uploaded or embedded videos like youtube, vimeo ... etc
 #############
-    .. image:: https://raw.githubusercontent.com/jeremygaul/django-gallery/master/screenshot-web.jpeg
+    .. image:: https://raw.githubusercontent.com/jeremygaul/django-video-gallery/master/screenshot-web.jpeg
         :alt: HTTPie compared to cURL
         :width: 100%
         :align: center
-Introduction
+Introduction - Under Dev - Not deployable yet
 ============
 
-`Django-gallery`_ is a simple photo gallery with granular access control.
+`django-video-gallery`_ is a simple Video gallery with granular access control.
 
-It powers myks's `humble photo gallery`_, allowing me to:
-
-- access my entire photo collection privately,
+- S3 Amazon support and AWS Transcoder with pipeline support
+- Allow embeded links like youtube as well as uploads.
+- access my entire collection privately,
 - share some albums with family or friends,
 - make some albums public.
 
-.. _django-gallery: https://github.com/jeremygaul/django-gallery
-.. _humble photo gallery: http://myks.org/photos/
+.. _django-video-gallery: https://github.com/jeremygaul/django-video-gallery
 
 Use case
 ========
 
-Rather than use a photo manager, I just create a new directory for each event
-and put my photos inside. I include the date of the event in the name of the
+Rather than use a video manager, I just create a new directory for each event
+and put my videos inside. I include the date of the event in the name of the
 directory and I rename photos based on their date and time. Then I regularly
 synchronize my collection to a remote storage. I serve my gallery from there.
 
-If you have a similar workflow, you may find django-gallery useful.
+If you have a similar workflow, you may find django-video-gallery useful.
 
 Whenever I upload new photos, I re-scan the collection with ``./manage.py
-scanphotos`` or with the button in the admin. django-gallery detects new albums
+scanphotos`` or with the button in the admin. django-video-gallery detects new albums
 and photos. Then I define users, groups and access policies in the admin.
 
 Album access policies control the visibility of albums. Most often, you'll
@@ -46,13 +45,13 @@ photos with relatives. You might want to use django-sesame_.
 Setup
 =====
 
-django-gallery is a pluggable Django application. It requires Django ≥ 1.8 and
+django-video-gallery is a pluggable Django application. It requires Django ≥ 1.8 and
 Pillow and pytz. It works with any version of Python supported by Django.
 
 Architecture
 ------------
 
-django-gallery requires two storage areas:
+django-video-gallery requires two storage areas:
 
 - The first one contains the original photos. It's a read-only reference. You
   can upload photos there with `aws s3 sync`_, `gsutil rsync`_, rsync_, etc.
@@ -61,7 +60,7 @@ django-gallery requires two storage areas:
   It's a read-write cache. You can set up expiry policies and clear it without
   affecting the gallery, aside from the cost of rescaling images again.
 
-django-gallery accesses them through Django's `file storage API`_, meaning that
+django-video-gallery accesses them through Django's `file storage API`_, meaning that
 you can use any storage for which a Django storage backend exists. You should
 use a third-party storage backend if you're storing files in a cloud service
 and Djang's built-in ``FileSystemStorage`` if you're storing them locally on
@@ -75,7 +74,7 @@ the filesystem, typically for local development.
 Installation guide
 ------------------
 
-Here's the general process for integrating django-gallery into an existing
+Here's the general process for integrating django-video-gallery into an existing
 website:
 
 1.  Download and install the package from PyPI::
@@ -83,23 +82,23 @@ website:
         $ pip install pytz
         $ pip install pillow
         
-        $ pip install django-gallery
+        $ pip install django-video-gallery (not done yet)
         
         OR
         
-        pip install https://github.com/jeremygaul/django-gallery/zipball/master
+        pip install https://github.com/jeremygaul/django-video-gallery/zipball/master
 
-2.  Add ``gallery.apps.GalleryConfig`` to ``INSTALLED_APPS``::
+2.  Add ``video-gallery.apps.GalleryConfig`` to ``INSTALLED_APPS``::
 
-        INSTALLED_APPS += 'gallery.apps.GalleryConfig',
+        INSTALLED_APPS += 'video-gallery.apps.GalleryConfig',
 
 3.  Configure the settings — see below for the list.
 
-4.  Add the application to your URLconf with the ``gallery`` application
+4.  Add the application to your URLconf with the ``video-gallery`` application
     namespace::
 
         urlpatterns += [
-            url(r'^gallery/', include('gallery.urls', namespace='gallery', app_name='gallery')),
+            url(r'^videos/', include('video-gallery.urls', namespace='video-gallery', app_name='video-gallery')),
         ]
 
 5.  Create a suitable ``base.html`` template. It must provide three blocks:
@@ -109,23 +108,23 @@ website:
     `X-accel`_ (nginx) or `mod_xsendfile`_ (Apache) for your photo and cache
     directories.
 
-7.  Scan your photos with the "Scan photos" button in the admin or the
+7.  Scan your photos with the "Scan videos" button in the admin or the
     ``scanphotos`` management command and define access policies.
 
 The source_ contains a sample application in the ``example`` directory. It can
 help you see how everything fits together. See below for how to run it.
 
-.. _example: https://github.com/jeremygaul/django-gallery/blob/master/example/example/templates/base.html
+.. _example: https://github.com/jeremygaul/django-video-gallery/blob/master/example/example/templates/base.html
 .. _X-accel: http://wiki.nginx.org/X-accel
 .. _mod_xsendfile: https://tn123.org/mod_xsendfile/
-.. _source: https://github.com/jeremygaul/django-gallery
+.. _source: https://github.com/jeremygaul/django-video-gallery
 
 Permissions
 -----------
 
-django-gallery defines two permissions:
+django-video-gallery defines two permissions:
 
-- "Can scan the photos directory" allows using the "Scan photos" button in the
+- "Can scan the video directory" allows using the "Scan photos" button in the
   admin.
 - "Can see all photos" allows seeing all albums and all photos regardless of
   access policies.
@@ -362,6 +361,14 @@ Running the sample application
 
 Changelog
 =========
+
+0.1
+---
+
+* Update docs for planned changes, media to be changed from photo gallery.
+
+FORK from Django-Gallery
+========================
 
 0.2
 ---
