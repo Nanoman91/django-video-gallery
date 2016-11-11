@@ -184,19 +184,21 @@ They contain the following captures:
 
 - ``a_name``: album name (mandatory) — to capture several bits, use
   ``a_name1``, ``a_name2``, etc.
-- ``a_year``, ``a_month``, ``a_day``: album date (mandatory)
+- ``a_year``, ``a_month``, ``a_day``: album date (no longer mandatory)
 - ``p_year``, ``p_month``, ``p_day``, ``p_hour``, ``p_minute``, ``p_second``:
   photo date and time (optional)
 
-Here's an example, for photos stored with names such as ``2013/01_19_Snow in
+Here's an expanded example, allowing for 3 different possibilities stored with names such as ``2013/01_19_Snow in
 Paris/2013-01-19_19-12-43.jpg``::
 
     GALLERY_PATTERNS = (
-        ('Photos',
-            r'(?P<a_year>\d{4})/(?P<a_month>\d{2})_(?P<a_day>\d{2})_'
-            r'(?P<a_name>[^_/]+)/'
-            r'(?P<p_year>\d{4})-(?P<p_month>\d{2})-(?P<p_day>\d{2})_'
-            r'(?P<p_hour>\d{2})-(?P<p_minute>\d{2})-(?P<p_second>\d{2})\.jpg'),
+        (   'Photos',   r'(?P<a_year>\d{4})/(?P<a_month>\d{2})_(?P<a_day>\d{2})_'
+                        r'(?P<a_name>[^_/]+)/'
+                        r'(?P<p_year>\d{4})-(?P<p_month>\d{2})-(?P<p_day>\d{2})_'
+                        r'(?P<p_hour>\d{2})-(?P<p_minute>\d{2})-(?P<p_second>\d{2})\.jpg'),
+         (  'Photos',   r'(?P<a_year>\d{4})_'
+                        r'(?P<a_name>[^/]+)/[^/]+.(jpg|JPG)'),
+        (   'Photos',   r'(?P<a_name>[^/]+)/[^/]+.(jpg|JPG)'),
     )
 
 ``GALLERY_IGNORES``
