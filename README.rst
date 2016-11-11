@@ -366,25 +366,25 @@ Changelog
 0.2
 ---
 
-Added setting for GALLERY_ALLOW_EMPTY and GALLERY_PAGINATE_COUNT
+* Added setting for GALLERY_ALLOW_EMPTY and GALLERY_PAGINATE_COUNT
 
 Updated CSS and example to match picture example and existing gallery templates.
 
-Changed Album Date to none mandatory to allow custom pattern matching, defaults to blank or autonow in model.
+* Changed Album Date to none mandatory to allow custom pattern matching, defaults to blank or autonow in model.
 
-Tested with Postgre 9.5.X with no issues.
+* Tested with Postgre 9.5.X with no issues.
 
-Known incompatability with Django-Cookiecutter, breaks scan-imports, most likely due to path setups, currently investigating.  
+* Known incompatability with cookiecutter-django, breaks scan-imports, most likely due to path setups, currently investigating.  
 
 
 0.1 
 ---
 
-Changed permissions and model to support custom user models.
+* Changed permissions and model to support custom user models.
 
-Changed albums to default to public = True
+* Changed albums to default to public = True
 
-Updated example to contain all options
+* Updated example to contain all options
 
 
 FORK from myks
