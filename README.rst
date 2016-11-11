@@ -338,6 +338,12 @@ Running the sample application
 Changelog
 =========
 
+0.2
+---
+
+Changed Album Date to none mandatory.
+
+
 0.1 
 ---
 
