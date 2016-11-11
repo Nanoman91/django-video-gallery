@@ -351,6 +351,8 @@ Changelog
 0.2
 ---
 
+Updated CSS and example to match picture example and existing gallery templates.
+
 Changed Album Date to none mandatory to allow custom pattern matching, defaults to blank or autonow in model.
 
 Tested with Postgre 9.5.X with no issues.
