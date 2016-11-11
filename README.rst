@@ -353,6 +353,10 @@ Changelog
 
 Changed Album Date to none mandatory.
 
+Tested with Postgre 9.5.X with no issues.
+
+Known incompatability with Django-Cookiecutter, breaks scan-imports, most likely due to path setups, currently investigating.  
+
 
 0.1 
 ---
